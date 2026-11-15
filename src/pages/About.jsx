@@ -1,6 +1,7 @@
 import { GraduationCap, MapPin, Calendar, BookOpen } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
-import { education, profile } from '../data/portfolio'
+import Reveal from '../components/Reveal'
+import { educationHistory, profile } from '../data/portfolio'
 
 export default function About() {
   return (
@@ -59,34 +60,32 @@ export default function About() {
           <p className="text-[11px] font-semibold text-ink-400 tracking-[0.18em] uppercase mb-3">Education</p>
           <h2 className="text-2xl md:text-3xl font-semibold text-ink-900 tracking-tight mb-8">Academic background</h2>
 
-          <div className="border border-ink-200 rounded-2xl p-6 md:p-8">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-              <div>
-                <h3 className="text-lg font-semibold text-ink-900">{education.school}</h3>
-                <p className="text-sm text-ink-700 font-medium mt-1">{education.degree}</p>
-                <p className="text-sm text-ink-500 mt-0.5">{education.minor}</p>
-                <p className="text-xs text-ink-400 mt-2">{education.location}</p>
-              </div>
-              <div className="shrink-0 md:text-right">
-                <span className="inline-block bg-ink-50 border border-ink-200 text-ink-700 text-xs font-medium px-3 py-1 rounded-full">
-                  {education.graduation}
-                </span>
-                <p className="text-xs text-ink-400 mt-2">GPA: {education.gpa}</p>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] font-semibold text-ink-400 uppercase tracking-[0.18em] mb-3">
-                Relevant coursework
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {education.coursework.map((c) => (
-                  <span key={c} className="text-xs bg-ink-50 border border-ink-100 text-ink-700 px-2.5 py-1 rounded-md">
-                    {c}
+          <div className="space-y-4">
+            {educationHistory.map((e) => (
+              <Reveal key={e.school}>
+                <div className="flex items-start gap-4 md:gap-5 border border-ink-200 rounded-2xl p-6 md:p-7 hover:border-ink-300 hover:shadow-sm transition-all">
+                  <span className="inline-flex items-center justify-center shrink-0 w-14 h-14 rounded-xl bg-white border border-ink-200 overflow-hidden p-1.5">
+                    <img src={e.logo} alt={`${e.school} logo`} loading="lazy" className="w-full h-full object-contain" />
                   </span>
-                ))}
-              </div>
-            </div>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 flex-1 min-w-0">
+                    <div className="min-w-0">
+                      <h3 className="text-lg font-semibold text-ink-900">{e.school}</h3>
+                      <p className="text-sm text-ink-700 font-medium mt-1">{e.degree}</p>
+                      {e.minor && <p className="text-sm text-ink-500 mt-0.5">{e.minor}</p>}
+                      <p className="text-xs text-ink-400 mt-2 inline-flex items-center gap-1">
+                        <MapPin size={11} /> {e.location}
+                      </p>
+                    </div>
+                    <div className="shrink-0 md:text-right">
+                      <span className="inline-block bg-ink-50 border border-ink-200 text-ink-700 text-xs font-medium px-3 py-1 rounded-full">
+                        {e.period}
+                      </span>
+                      {e.note && <p className="text-xs text-ink-400 mt-2">{e.note}</p>}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

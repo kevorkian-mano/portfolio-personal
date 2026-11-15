@@ -30,7 +30,7 @@ export default function Contact() {
                 <div key={label}>
                   <p className="text-[11px] font-semibold text-ink-400 uppercase tracking-[0.18em] mb-2">{label}</p>
                   {href ? (
-                    <a href={href} className="text-sm font-medium text-ink-900 inline-flex items-center gap-2 hover:text-accent-600 transition-colors">
+                    <a href={href} className="text-sm font-medium text-ink-900 inline-flex items-center gap-2 hover:text-ink-600 transition-colors">
                       <Icon size={14} className="text-ink-500" /> {value}
                     </a>
                   ) : (
