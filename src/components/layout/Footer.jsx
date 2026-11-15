@@ -13,9 +13,9 @@ export default function Footer() {
     <footer className="border-t border-ink-100 bg-white mt-auto">
       <div className="container-content py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
-          <p className="text-sm font-semibold text-ink-900">Manuel Haik Kevorkian</p>
-          <p className="text-xs text-ink-400 mt-0.5">
-            © {new Date().getFullYear()} · Built with React & Tailwind
+          <p className="text-sm text-ink-600">
+            <span className="font-semibold text-ink-900">Manuel Youssef Haik Kevorkian</span>
+            <span className="text-ink-400"> · © {new Date().getFullYear()}</span>
           </p>
         </div>
         <div className="flex gap-1.5">

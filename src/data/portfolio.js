@@ -1,6 +1,14 @@
 import studyBuddyImg from '../assets/projects/studybuddy.png'
 import miniJiraImg from '../assets/projects/minijira.png'
 import citiBikeImg from '../assets/projects/citibike.png'
+import likeALocalImg from '../assets/projects/likealocal.jpg'
+
+import pwcLogo from '../assets/logos/pwc.png'
+import pmiLogo from '../assets/logos/pmi.png'
+import kodakLogo from '../assets/logos/kodak.png'
+import abgLogo from '../assets/logos/abg.png'
+import giuLogo from '../assets/logos/giu.png'
+import knasLogo from '../assets/logos/knas.png'
 
 export const profile = {
   name: 'Manuel Youssef Haik Kevorkian',
@@ -39,6 +47,7 @@ export const education = {
 export const experiences = [
   {
     company: 'PwC ETIC',
+    logo: pwcLogo,
     role: 'Managed Services & AI Intern',
     period: 'Jul 2026 — Present',
     location: 'Cairo, Egypt',
@@ -52,6 +61,7 @@ export const experiences = [
   },
   {
     company: 'Project Management Institute',
+    logo: pmiLogo,
     role: 'PM Course Pilot Volunteer',
     period: 'Sep 2025 — Oct 2025',
     location: 'Cairo, Egypt',
@@ -64,6 +74,7 @@ export const experiences = [
   },
   {
     company: 'Accord Business Group',
+    logo: abgLogo,
     role: 'Software Engineer Intern',
     period: 'Aug 2025 — Sep 2025',
     location: 'Cairo, Egypt',
@@ -76,6 +87,7 @@ export const experiences = [
   },
   {
     company: 'Eastman Kodak Company',
+    logo: kodakLogo,
     role: 'Software Engineer Intern',
     period: 'May 2025 — Jul 2025',
     location: 'Cairo, Egypt',
@@ -150,6 +162,63 @@ export const projects = [
       'Unified subsystem repos into one NestJS/Next.js codebase, with 75+ REST endpoints delivered over 3 milestones.',
     ],
     tag: 'Full Stack',
+  },
+  {
+    title: 'LikeALocal — City Discovery App',
+    image: likeALocalImg,
+    imageAlt: 'LikeALocal mobile app promotional screens',
+    imageFit: 'cover',
+    stack: ['Flutter', 'Dart', 'Firebase'],
+    date: 'Jun 2026',
+    repo: 'https://github.com/kevorkian-mano/likealocal-mobile-app',
+    bullets: [
+      'Built a premium Flutter travel app for discovering curated "Hidden Gems" via an interactive map, personalized feed, and community contributions.',
+      'Designed 5 hierarchical user roles with an AI local guide, P2P chat, and premium tiers including an AI trip planner and offline maps.',
+    ],
+    tag: 'Mobile',
+  },
+  {
+    title: 'LUCINE — Full-Stack E-Commerce',
+    stack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    date: 'Jan 2026',
+    repo: 'https://github.com/kevorkian-mano/lucine-ecommerce_testdriven',
+    bullets: [
+      'Developed a production-ready MERN e-commerce platform with JWT auth, Stripe payments, stock-validated cart, and an admin dashboard.',
+      'Followed a test-driven, layered 3-tier architecture with SOLID principles and 300+ unit tests across backend and frontend.',
+    ],
+    tag: 'Full Stack',
+  },
+  {
+    title: 'Play, Learn & Protect',
+    stack: ['Next.js', 'Nest.js', 'MongoDB'],
+    date: 'Jan 2026',
+    repo: 'https://github.com/kevorkian-mano/play-Learn-requirements-engineering',
+    bullets: [
+      'Built a gamified learning platform for Egyptian children (ages 3–12) with 33 games across 6 subjects and 3 difficulty levels.',
+      'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',
+    ],
+    tag: 'Full Stack',
+  },
+]
+
+export const educationHistory = [
+  {
+    school: 'German International University',
+    logo: giuLogo,
+    degree: 'B.Sc. in Software Engineering',
+    minor: 'Minor in Data Science & AI',
+    location: 'New Administrative Capital, Cairo, Egypt',
+    period: 'Expected June 2027',
+    note: 'GPA 1.16 (German Scale)',
+  },
+  {
+    school: 'Kaloudian Nubarian Armenian School',
+    logo: knasLogo,
+    degree: 'Graduated — Mathematics Section',
+    minor: '',
+    location: 'Cairo, Egypt',
+    period: 'Secondary education',
+    note: '',
   },
 ]
 

@@ -23,14 +23,14 @@ export default function Experience() {
               {experiences.map((exp) => (
                 <Reveal key={exp.company + exp.role} className="relative sm:pl-16">
                   <div className="absolute left-0 top-6 hidden sm:block">
-                    <CompanyLogo company={exp.company} size="md" />
+                    <CompanyLogo company={exp.company} logo={exp.logo} size="md" />
                   </div>
 
                   <article className="bg-white border border-ink-200 rounded-2xl p-6 hover:border-ink-300 hover:shadow-sm transition-all">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-4">
                       <div className="flex items-start gap-3">
                         <div className="sm:hidden">
-                          <CompanyLogo company={exp.company} size="md" />
+                          <CompanyLogo company={exp.company} logo={exp.logo} size="md" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2 flex-wrap mb-1">
