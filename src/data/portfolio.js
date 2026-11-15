@@ -1,3 +1,7 @@
+import studyBuddyImg from '../assets/projects/studybuddy.png'
+import miniJiraImg from '../assets/projects/minijira.png'
+import citiBikeImg from '../assets/projects/citibike.png'
+
 export const profile = {
   name: 'Manuel Youssef Haik Kevorkian',
   shortName: 'Manuel Haik Kevorkian',
@@ -10,6 +14,13 @@ export const profile = {
   credly: 'https://www.credly.com/users/manuel-kevorkian/edit/badges/credly',
   tagline: 'Software Engineering student at GIU Cairo, minoring in Data Science & AI. I build full-stack systems, cloud-native apps, and AI-powered tools.',
 }
+
+export const stats = [
+  { value: '4', label: 'Internships & roles' },
+  { value: '60K+', label: 'Repositories analyzed' },
+  { value: '21', label: 'Engineers led on one build' },
+  { value: '2027', label: 'Expected graduation' },
+]
 
 export const education = {
   school: 'German International University',
@@ -91,6 +102,9 @@ export const projects = [
   },
   {
     title: 'Real-Time Study Buddy Matcher',
+    image: studyBuddyImg,
+    imageAlt: 'Study Buddy Matcher landing page',
+    imageFit: 'cover',
     stack: ['React', 'Node.js', 'GraphQL', 'Kafka', 'PostgreSQL'],
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/software_hidden',
@@ -102,6 +116,8 @@ export const projects = [
   },
   {
     title: 'Mini-Jira AWS',
+    image: miniJiraImg,
+    imageAlt: 'Mini-Jira AWS cloud architecture diagram',
     stack: ['AWS', 'React', 'Node.js', 'DynamoDB', 'Lambda'],
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/aws-mini-jira',
@@ -113,6 +129,8 @@ export const projects = [
   },
   {
     title: 'Citi Bike NYC Analytics & ML Pipeline',
+    image: citiBikeImg,
+    imageAlt: 'Citi Bike hourly trip demand analysis chart',
     stack: ['PySpark', 'Spark SQL', 'SparkML', 'Plotly'],
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/Citi-Bike-NYC',
