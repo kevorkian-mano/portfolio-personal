@@ -104,6 +104,7 @@ export interface Project {
   stack: string[]
   coverIcon: string
   coverLabel: string
+  coverIllustration?: string
 }
 
 export const projects: Project[] = [
@@ -141,6 +142,7 @@ export const projects: Project[] = [
     stack: ['AWS', 'React', 'Node.js', 'DynamoDB', 'Lambda'],
     coverIcon: 'Cloud',
     coverLabel: 'AWS Cloud',
+    coverIllustration: 'aws',
     bullets: [
       'Deployed a Jira-like task platform across 2 AZs using EC2, ALB & CloudFront, integrating 10+ AWS services.',
       'Built 3 event-driven Lambda workflows via SNS, SQS & EventBridge for image processing, alerts and daily digests.',

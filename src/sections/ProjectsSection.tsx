@@ -52,7 +52,12 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
         <div className="grid md:grid-cols-2 gap-5 sm:gap-7 items-stretch flex-1 min-h-0">
           {/* Cover */}
           <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#D7E2EA]/15 min-h-[180px]">
-            <ProjectCover icon={project.coverIcon} label={project.coverLabel} iconSize={120} />
+            <ProjectCover
+              icon={project.coverIcon}
+              label={project.coverLabel}
+              illustration={project.coverIllustration}
+              iconSize={120}
+            />
           </div>
 
           {/* Text */}
