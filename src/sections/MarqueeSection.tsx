@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-import { MARQUEE_IMAGES } from '../data'
+import studyBuddyImg from '../assets/projects/studybuddy.png'
+import miniJiraImg from '../assets/projects/minijira.png'
+import citiBikeImg from '../assets/projects/citibike.png'
+import likeALocalImg from '../assets/projects/likealocal.jpg'
 
-const ROW1 = MARQUEE_IMAGES.slice(0, 11)
-const ROW2 = MARQUEE_IMAGES.slice(11)
-const TRIPLED1 = [...ROW1, ...ROW1, ...ROW1]
-const TRIPLED2 = [...ROW2, ...ROW2, ...ROW2]
+// Rows are built from real project work so the band is self-contained.
+const ROW1 = [studyBuddyImg, miniJiraImg, citiBikeImg, likeALocalImg]
+const ROW2 = [citiBikeImg, likeALocalImg, studyBuddyImg, miniJiraImg]
+const REPEAT = 4
+const TRIPLED1 = Array.from({ length: REPEAT }, () => ROW1).flat()
+const TRIPLED2 = Array.from({ length: REPEAT }, () => ROW2).flat()
 
 function Tile({ src }: { src: string }) {
   return (
@@ -12,7 +17,7 @@ function Tile({ src }: { src: string }) {
       src={src}
       alt=""
       loading="lazy"
-      className="rounded-2xl object-cover shrink-0"
+      className="rounded-2xl object-cover shrink-0 border border-[#D7E2EA]/10"
       style={{ width: 420, height: 270 }}
     />
   )

@@ -23,6 +23,15 @@
   }
 }
 
+/* Neutral cover tile for projects without a screenshot. */
+.grid-cover {
+  background-color: #0f0f10;
+  background-image:
+    linear-gradient(to right, rgba(215, 226, 234, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(215, 226, 234, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 /* Gradient text used by the big display headings. */
 .hero-heading {
   background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);

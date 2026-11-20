@@ -1,60 +1,15 @@
 import FadeIn from '../components/FadeIn'
 import AnimatedText from '../components/AnimatedText'
 import ContactButton from '../components/ContactButton'
-import { ABOUT_DECOR } from '../data'
-
-const ABOUT_TEXT =
-  "With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
+import { profile, stats } from '../data'
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 bg-[#0C0C0C]"
+      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 sm:py-24 bg-[#0C0C0C]"
     >
-      {/* Decorative 3D images in the corners */}
-      <FadeIn
-        delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
-      >
-        <img src={ABOUT_DECOR.moon} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.15}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
-      >
-        <img src={ABOUT_DECOR.lego} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px] pointer-events-none"
-      >
-        <img src={ABOUT_DECOR.object} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px] pointer-events-none"
-      >
-        <img src={ABOUT_DECOR.group} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      {/* Content */}
-      <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16 relative z-10">
+      <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16 relative z-10 w-full max-w-5xl">
         <FadeIn
           as="h2"
           delay={0}
@@ -65,12 +20,31 @@ export default function AboutSection() {
           About me
         </FadeIn>
 
-        <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
+        <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24 w-full">
           <AnimatedText
-            text={ABOUT_TEXT}
-            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
+            text={profile.about}
+            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[640px] mx-auto"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
           />
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#D7E2EA]/10 w-full rounded-2xl overflow-hidden border border-[#D7E2EA]/10">
+            {stats.map((s, i) => (
+              <FadeIn
+                key={s.label}
+                delay={i * 0.08}
+                className="bg-[#0C0C0C] px-5 py-8 text-center flex flex-col gap-2"
+              >
+                <span className="hero-heading font-black tracking-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1 }}>
+                  {s.value}
+                </span>
+                <span className="text-[#D7E2EA]/60 text-xs sm:text-sm uppercase tracking-wider leading-snug">
+                  {s.label}
+                </span>
+              </FadeIn>
+            ))}
+          </div>
+
           <ContactButton />
         </div>
       </div>

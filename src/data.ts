@@ -1,109 +1,304 @@
-export const PORTRAIT =
-  'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png'
+import studyBuddyImg from './assets/projects/studybuddy.png'
+import miniJiraImg from './assets/projects/minijira.png'
+import citiBikeImg from './assets/projects/citibike.png'
+import likeALocalImg from './assets/projects/likealocal.jpg'
 
-export const ABOUT_DECOR = {
-  moon: 'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png',
-  object:
-    'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png',
-  lego: 'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png',
-  group:
-    'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png',
+import pwcLogo from './assets/logos/pwc.png'
+import pmiLogo from './assets/logos/pmi.png'
+import kodakLogo from './assets/logos/kodak.png'
+import abgLogo from './assets/logos/abg.png'
+import giuLogo from './assets/logos/giu.png'
+import knasLogo from './assets/logos/knas.png'
+
+export const profile = {
+  name: 'Manuel Youssef Haik Kevorkian',
+  firstName: 'Manuel',
+  title: 'Software Engineer',
+  location: 'Cairo, Egypt',
+  email: 'mano.kevorkian@yahoo.com',
+  phone: '+20 01201698890',
+  github: 'https://github.com/kevorkian-mano',
+  linkedin: 'https://www.linkedin.com/in/manuel-haik-kevorkian-261102371/',
+  credly: 'https://www.credly.com/users/manuel-kevorkian/edit/badges/credly',
+  tagline:
+    'a software engineer crafting full-stack systems, cloud-native apps, and ai-powered tools',
+  about:
+    "I'm Manuel, a Software Engineering student at GIU Cairo with a minor in Data Science and AI. Over the past year I've interned at PwC, Eastman Kodak, and Accord Business Group, shipping cloud-deployed AI tools and full-stack apps in production. My work pairs solid engineering with research, from distributed systems to AI-powered agents. Let's build something great together!",
 }
 
-export const MARQUEE_IMAGES: string[] = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-  'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
-  'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-  'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-  'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-  'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-  'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
-  'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
-  'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
-  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
-  'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
-  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-  'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
-  'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
-  'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
-  'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
+export const stats = [
+  { value: '4', label: 'Internships & roles' },
+  { value: '60K+', label: 'Repositories analyzed' },
+  { value: '21', label: 'Engineers led on one build' },
+  { value: '2027', label: 'Expected graduation' },
 ]
 
-export interface Service {
-  num: string
-  name: string
-  desc: string
+export interface Experience {
+  company: string
+  logo: string
+  role: string
+  period: string
+  location: string
+  current?: boolean
+  bullets: string[]
+  tech: string[]
 }
 
-export const SERVICES: Service[] = [
+export const experiences: Experience[] = [
   {
-    num: '01',
-    name: '3D Modeling',
-    desc: 'Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.',
+    company: 'PwC ETIC',
+    logo: pwcLogo,
+    role: 'Managed Services & AI Intern',
+    period: 'Jul 2026 - Present',
+    location: 'Cairo, Egypt',
+    current: true,
+    bullets: [
+      'Built 3 AI agentic tools turning BRDs into HTML prototypes in 15 min; co-designed AI training for 40-60 staff.',
+      'Deployed Azure Document Intelligence models, Function Apps & AI configs across Dev, Staging & Prod for 2 tax apps.',
+      'Resolved Level 1 incidents across 25+ enterprise apps via ServiceNow, Jira & Azure DevOps; wrote team support guides.',
+    ],
+    tech: ['Azure OpenAI', 'Document Intelligence', 'Function Apps', 'ServiceNow', 'Azure DevOps'],
   },
   {
-    num: '02',
-    name: 'Rendering',
-    desc: 'High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.',
+    company: 'Project Management Institute',
+    logo: pmiLogo,
+    role: 'PM Course Pilot Volunteer',
+    period: 'Sep 2025 - Oct 2025',
+    location: 'Cairo, Egypt',
+    bullets: [
+      'Evaluated a 4-hour Software Project Management eLearning course focused on Agile methodologies and sprint planning.',
+      'Provided 20+ improvement recommendations across PM case studies, schedules, and process diagrams.',
+      'Reviewed and refined 95% of course content for clarity, technical accuracy, and Agile best practices alignment.',
+    ],
+    tech: ['Agile', 'Scrum', 'PM Case Studies'],
   },
   {
-    num: '03',
-    name: 'Motion Design',
-    desc: 'Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.',
+    company: 'Accord Business Group',
+    logo: abgLogo,
+    role: 'Software Engineer Intern',
+    period: 'Aug 2025 - Sep 2025',
+    location: 'Cairo, Egypt',
+    bullets: [
+      'Collaborated with a fraud analysis team to understand the end-to-end fraud detection lifecycle in banking systems.',
+      'Gained hands-on exposure to SAS fraud and analytics tools (SAS FM, SAS VA, SAS VI, SAS SQL).',
+      'Analyzed 100+ sample banking transactions and fraud alerts as part of a structured supervised training program.',
+    ],
+    tech: ['SAS FM', 'SAS VA', 'SAS VI', 'SAS SQL'],
   },
   {
-    num: '04',
-    name: 'Branding',
-    desc: 'Crafting cohesive visual identities, from logos to full brand systems, that communicate a clear and memorable presence.',
-  },
-  {
-    num: '05',
-    name: 'Web Design',
-    desc: 'Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.',
+    company: 'Eastman Kodak Company',
+    logo: kodakLogo,
+    role: 'Software Engineer Intern',
+    period: 'May 2025 - Jul 2025',
+    location: 'Cairo, Egypt',
+    bullets: [
+      'Developed a full-stack web application to digitally transform in-store queue management and customer records.',
+      'Digitized 200+ daily paper-based entries into structured records, integrating APIs to support real-time operations.',
+      'Worked in an Agile team of 5 across sprints, driving digital transformation that cut wait times by an estimated 20%.',
+    ],
+    tech: ['Full Stack', 'REST APIs', 'Agile'],
   },
 ]
 
 export interface Project {
-  num: string
-  name: string
-  category: string
-  images: [string, string, string]
+  title: string
+  tag: string
+  date: string
+  repo: string
+  bullets: string[]
+  stack: string[]
+  image?: string
+  imageAlt?: string
 }
 
-export const PROJECTS: Project[] = [
+export const projects: Project[] = [
   {
-    num: '01',
-    name: 'Nextlevel Studio',
-    category: 'Client',
-    images: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    title: 'B.Sc. Thesis: AI Coding Agent Adoption in npm',
+    tag: 'Research',
+    date: 'Nov 2026',
+    repo: 'https://github.com/kevorkian-mano/thesis-coding-agent-adoption',
+    stack: ['Python', 'GitHub API', 'GraphQL'],
+    bullets: [
+      'Built a 5-stage pipeline with a 3-pass detection cascade, classifying 60,129 GitHub repos for AI coding agent use.',
+      "Found 74.4% adoption and produced the first 66-country ranking using Wilson CIs, McNemar's and chi-squared tests.",
     ],
   },
   {
-    num: '02',
-    name: 'Aura Brand Identity',
-    category: 'Personal',
-    images: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
+    title: 'Real-Time Study Buddy Matcher',
+    tag: 'Full Stack',
+    date: 'May 2026',
+    repo: 'https://github.com/kevorkian-mano/buddymatcher-microservices',
+    stack: ['React', 'Node.js', 'GraphQL', 'Kafka', 'PostgreSQL'],
+    image: studyBuddyImg,
+    imageAlt: 'Study Buddy Matcher landing page',
+    bullets: [
+      'Led a team of 5 to build 7 microservices communicating via Kafka across 6 event streams and 7 PostgreSQL databases.',
+      'Developed a 7-factor compatibility algorithm to generate real-time, personalized study buddy recommendations.',
     ],
   },
   {
-    num: '03',
-    name: 'Solaris Digital',
-    category: 'Client',
-    images: [
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-      'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
+    title: 'Mini-Jira AWS',
+    tag: 'Cloud',
+    date: 'May 2026',
+    repo: 'https://github.com/kevorkian-mano/aws-mini-jira',
+    stack: ['AWS', 'React', 'Node.js', 'DynamoDB', 'Lambda'],
+    image: miniJiraImg,
+    imageAlt: 'Mini-Jira AWS cloud architecture diagram',
+    bullets: [
+      'Deployed a Jira-like task platform across 2 AZs using EC2, ALB & CloudFront, integrating 10+ AWS services.',
+      'Built 3 event-driven Lambda workflows via SNS, SQS & EventBridge for image processing, alerts and daily digests.',
     ],
+  },
+  {
+    title: 'Citi Bike NYC Analytics & ML Pipeline',
+    tag: 'Data / ML',
+    date: 'May 2026',
+    repo: 'https://github.com/kevorkian-mano/Citi-Bike-NYC',
+    stack: ['PySpark', 'Spark SQL', 'SparkML', 'Plotly'],
+    image: citiBikeImg,
+    imageAlt: 'Citi Bike hourly trip demand analysis chart',
+    bullets: [
+      'Cleaned 1.3M Citi Bike records to a 99.92% clean-data rate and ran 10 Spark SQL queries to uncover demand patterns.',
+      'Evaluated 3 SparkML models on 624K+ records, achieving 59.81% accuracy and delivering an interactive dashboard.',
+    ],
+  },
+  {
+    title: 'LikeALocal - City Discovery App',
+    tag: 'Mobile',
+    date: 'Jun 2026',
+    repo: 'https://github.com/kevorkian-mano/likealocal-mobile-app',
+    stack: ['Flutter', 'Dart', 'Firebase'],
+    image: likeALocalImg,
+    imageAlt: 'LikeALocal mobile app promotional screens',
+    bullets: [
+      'Built a premium Flutter travel app for discovering curated "Hidden Gems" via an interactive map, personalized feed, and community contributions.',
+      'Designed 5 hierarchical user roles with an AI local guide, P2P chat, and premium tiers including an AI trip planner and offline maps.',
+    ],
+  },
+  {
+    title: 'HR System',
+    tag: 'Full Stack',
+    date: 'Dec 2025',
+    repo: 'https://github.com/kevorkian-mano/DataOrbit---HealthCare-Provider-Fraud-Detection-Project',
+    stack: ['MongoDB', 'Nest.js', 'Next.js'],
+    bullets: [
+      'Led a 21-member team delivering an HR system with 7 subsystems to production, ranked among the top 5 projects.',
+      'Unified subsystem repos into one NestJS/Next.js codebase, with 75+ REST endpoints delivered over 3 milestones.',
+    ],
+  },
+  {
+    title: 'LUCINE - Full-Stack E-Commerce',
+    tag: 'Full Stack',
+    date: 'Jan 2026',
+    repo: 'https://github.com/kevorkian-mano/lucine-ecommerce_testdriven',
+    stack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    bullets: [
+      'Developed a production-ready MERN e-commerce platform with JWT auth, Stripe payments, stock-validated cart, and an admin dashboard.',
+      'Followed a test-driven, layered 3-tier architecture with SOLID principles and 300+ unit tests across backend and frontend.',
+    ],
+  },
+  {
+    title: 'Play, Learn & Protect',
+    tag: 'Full Stack',
+    date: 'Jan 2026',
+    repo: 'https://github.com/kevorkian-mano/play-Learn-requirements-engineering',
+    stack: ['Next.js', 'Nest.js', 'MongoDB'],
+    bullets: [
+      'Built a gamified learning platform for Egyptian children (ages 3-12) with 33 games across 6 subjects and 3 difficulty levels.',
+      'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',
+    ],
+  },
+]
+
+export interface SkillGroup {
+  category: string
+  skills: string[]
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    category: 'Programming Languages',
+    skills: ['Python', 'Java', 'JavaScript (ES6+)', 'TypeScript', 'C', 'C++', 'C#', 'Dart'],
+  },
+  {
+    category: 'Web & Backend',
+    skills: ['HTML5', 'CSS3', 'React.js', 'Next.js', 'Node.js', 'Nest.js', 'Spring Boot', 'GraphQL', 'Flutter', 'OutSystems'],
+  },
+  {
+    category: 'Databases & ORM',
+    skills: ['PostgreSQL', 'NeonDB', 'DynamoDB', 'MongoDB', 'Cassandra', 'MSSQL', 'Redis', 'Firebase', 'Prisma ORM'],
+  },
+  {
+    category: 'Cloud, Big Data & ML',
+    skills: ['AWS', 'Apache Spark', 'SparkSQL', 'NumPy', 'Pandas', 'Matplotlib', 'Scikit-learn', 'Power BI'],
+  },
+  {
+    category: 'AI & Automation',
+    skills: ['Azure OpenAI', 'LangGraph', 'MCP', 'A2A', 'RAG', 'n8n', 'Copilot Studio', 'Power Platform'],
+  },
+  {
+    category: 'Tools & Practices',
+    skills: ['Docker', 'Linux/WSL', 'Git', 'Postman', 'ServiceNow', 'Jira', 'Azure DevOps', 'Figma', 'Agile/Scrum', 'UML'],
+  },
+]
+
+export interface EducationItem {
+  school: string
+  logo: string
+  degree: string
+  minor?: string
+  location: string
+  period: string
+  note?: string
+}
+
+export const educationHistory: EducationItem[] = [
+  {
+    school: 'German International University',
+    logo: giuLogo,
+    degree: 'B.Sc. in Software Engineering',
+    minor: 'Minor in Data Science & AI',
+    location: 'New Administrative Capital, Cairo, Egypt',
+    period: 'Expected June 2027',
+    note: 'GPA 1.16 (German Scale)',
+  },
+  {
+    school: 'Kaloudian Nubarian Armenian School',
+    logo: knasLogo,
+    degree: 'Graduated - Mathematics Section',
+    location: 'Cairo, Egypt',
+    period: 'Secondary education',
+  },
+]
+
+export interface Achievement {
+  title: string
+  issuer: string
+  year: string
+  link: string
+  type: string
+}
+
+export const achievements: Achievement[] = [
+  {
+    title: 'Confluent Apache Kafka Fundamentals',
+    issuer: 'Confluent',
+    year: '2026',
+    link: 'https://certificates.confluent.io/ac700098-4e77-4748-8e2d-7754e1e1631d',
+    type: 'Certification',
+  },
+  {
+    title: 'AWS Academy Graduate - Cloud Foundations',
+    issuer: 'AWS Academy',
+    year: '2026',
+    link: 'https://www.credly.com/badges/123b3967-1b0d-4ab9-a2cc-38d7078a3fe2/public_url',
+    type: 'Certification',
+  },
+  {
+    title: 'DAAD Scholarship Recipient',
+    issuer: 'German International University',
+    year: '',
+    link: 'https://drive.google.com/file/d/1ir1m7NR7aHjLuTo0yNrfQyzGijuoDPG3/view?usp=drive_link',
+    type: 'Award',
   },
 ]

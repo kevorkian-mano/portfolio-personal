@@ -1,8 +1,10 @@
 import HeroSection from './sections/HeroSection'
 import MarqueeSection from './sections/MarqueeSection'
 import AboutSection from './sections/AboutSection'
-import ServicesSection from './sections/ServicesSection'
+import ExperienceSection from './sections/ExperienceSection'
+import SkillsSection from './sections/SkillsSection'
 import ProjectsSection from './sections/ProjectsSection'
+import ContactSection from './sections/ContactSection'
 
 export default function App() {
   return (
@@ -10,8 +12,10 @@ export default function App() {
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
-      <ServicesSection />
+      <ExperienceSection />
+      <SkillsSection />
       <ProjectsSection />
+      <ContactSection />
     </div>
   )
 }

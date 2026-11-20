@@ -3,8 +3,19 @@ import type { MotionValue } from 'framer-motion'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import FadeIn from '../components/FadeIn'
 import LiveProjectButton from '../components/LiveProjectButton'
-import { PROJECTS } from '../data'
+import { projects } from '../data'
 import type { Project } from '../data'
+
+function initials(title: string) {
+  return title
+    .replace(/[^a-zA-Z ]/g, '')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
+}
 
 interface CardProps {
   project: Project
@@ -18,60 +29,77 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
   const scale = useTransform(progress, range, [1, targetScale])
 
   return (
-    <div className="h-[85vh] sticky top-24 md:top-32 flex justify-center">
+    <div className="h-[82vh] sticky top-20 md:top-28 flex justify-center">
       <motion.div
-        style={{ scale, top: `${index * 28}px` }}
-        className="relative w-full max-w-6xl origin-top rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8"
+        style={{ scale, top: `${index * 26}px` }}
+        className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-9 flex flex-col"
       >
         {/* Top row */}
-        <div className="flex items-start justify-between gap-4 mb-4 sm:mb-6">
-          <div className="flex items-start gap-3 sm:gap-6 min-w-0">
+        <div className="flex items-start justify-between gap-4 mb-5 sm:mb-7">
+          <div className="flex items-start gap-3 sm:gap-5 min-w-0">
             <span
-              className="font-black text-[#D7E2EA] shrink-0"
-              style={{ fontSize: 'clamp(3rem, 10vw, 140px)', lineHeight: 1 }}
+              className="hero-heading font-black shrink-0"
+              style={{ fontSize: 'clamp(2.5rem, 8vw, 110px)', lineHeight: 1 }}
             >
-              {project.num}
+              {String(index + 1).padStart(2, '0')}
             </span>
             <div className="flex flex-col gap-1 pt-1 sm:pt-2 min-w-0">
-              <span className="text-[#D7E2EA]/60 uppercase tracking-widest text-[10px] sm:text-sm">
-                {project.category}
+              <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
+                {project.tag} · {project.date}
               </span>
               <span
                 className="text-[#D7E2EA] font-medium uppercase leading-tight"
-                style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}
+                style={{ fontSize: 'clamp(1rem, 2vw, 1.9rem)' }}
               >
-                {project.name}
+                {project.title}
               </span>
             </div>
           </div>
-          <LiveProjectButton className="shrink-0 hidden sm:inline-flex" />
+          <LiveProjectButton href={project.repo} label="View Code" className="shrink-0 hidden sm:inline-block" />
         </div>
 
-        {/* Bottom row: image grid */}
-        <div className="flex gap-3 sm:gap-4 md:gap-6">
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 w-2/5">
-            <img
-              src={project.images[0]}
-              alt={`${project.name} preview 1`}
-              loading="lazy"
-              className="w-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-              style={{ height: 'clamp(130px, 16vw, 230px)' }}
-            />
-            <img
-              src={project.images[1]}
-              alt={`${project.name} preview 2`}
-              loading="lazy"
-              className="w-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-              style={{ height: 'clamp(160px, 22vw, 340px)' }}
-            />
+        {/* Bottom row */}
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-7 items-stretch flex-1 min-h-0">
+          {/* Image / cover */}
+          <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#D7E2EA]/15 min-h-[180px]">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.imageAlt || project.title}
+                loading="lazy"
+                className="w-full h-full object-cover object-top"
+                style={{ background: '#111' }}
+              />
+            ) : (
+              <div className="w-full h-full min-h-[180px] flex items-center justify-center grid-cover">
+                <span className="hero-heading font-black" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>
+                  {initials(project.title)}
+                </span>
+              </div>
+            )}
           </div>
-          <div className="w-3/5">
-            <img
-              src={project.images[2]}
-              alt={`${project.name} preview 3`}
-              loading="lazy"
-              className="w-full h-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-            />
+
+          {/* Text */}
+          <div className="flex flex-col justify-between gap-5">
+            <ul className="flex flex-col gap-3">
+              {project.bullets.map((b, j) => (
+                <li key={j} className="flex gap-3 text-[#D7E2EA]/75 text-sm sm:text-[15px] leading-relaxed font-light">
+                  <span className="mt-2 w-1 h-1 rounded-full bg-[#D7E2EA]/40 shrink-0" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              {project.stack.map((s) => (
+                <span
+                  key={s}
+                  className="text-[11px] sm:text-xs text-[#D7E2EA]/60 border border-[#D7E2EA]/15 rounded-full px-3 py-1 uppercase tracking-wider"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+            <LiveProjectButton href={project.repo} label="View Code" className="sm:hidden self-start" />
           </div>
         </div>
       </motion.div>
@@ -85,7 +113,7 @@ export default function ProjectsSection() {
     target: containerRef,
     offset: ['start start', 'end end'],
   })
-  const total = PROJECTS.length
+  const total = projects.length
 
   return (
     <section
@@ -99,15 +127,15 @@ export default function ProjectsSection() {
         className="hero-heading font-black uppercase leading-none tracking-tight text-center"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
-        Project
+        Projects
       </FadeIn>
 
       <div ref={containerRef} className="mt-12 sm:mt-16 md:mt-20">
-        {PROJECTS.map((project, i) => {
-          const targetScale = 1 - (total - 1 - i) * 0.03
+        {projects.map((project, i) => {
+          const targetScale = 1 - (total - 1 - i) * 0.025
           return (
             <ProjectCard
-              key={project.num}
+              key={project.title}
               project={project}
               index={i}
               progress={scrollYProgress}
