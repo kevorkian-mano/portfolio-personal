@@ -11,13 +11,17 @@ const REPEAT = 3
 const ROW1 = Array.from({ length: REPEAT }, () => ROW1_SRC).flat()
 const ROW2 = Array.from({ length: REPEAT }, () => ROW2_SRC).flat()
 
-function Tile({ icon, label }: { icon: string; label: string }) {
+function Tile({ icon, label, image }: { icon: string; label: string; image?: string }) {
   return (
     <div
-      className="rounded-2xl shrink-0 border border-[#D7E2EA]/10 overflow-hidden"
+      className="rounded-2xl shrink-0 border border-[#D7E2EA]/10 overflow-hidden bg-[#F4F1EA]"
       style={{ width: 420, height: 270 }}
     >
-      <ProjectCover icon={icon} label={label} iconSize={92} />
+      {image ? (
+        <img src={image} alt="" loading="lazy" className="w-full h-full object-cover object-left" />
+      ) : (
+        <ProjectCover icon={icon} label={label} iconSize={92} />
+      )}
     </div>
   )
 }
@@ -51,7 +55,7 @@ export default function MarqueeSection() {
           style={{ transform: `translateX(${offset - 200}px)`, willChange: 'transform' }}
         >
           {ROW1.map((p, i) => (
-            <Tile key={`r1-${i}`} icon={p.coverIcon} label={p.coverLabel} />
+            <Tile key={`r1-${i}`} icon={p.coverIcon} label={p.coverLabel} image={p.coverImage} />
           ))}
         </div>
         <div
@@ -59,7 +63,7 @@ export default function MarqueeSection() {
           style={{ transform: `translateX(${-(offset - 200)}px)`, willChange: 'transform' }}
         >
           {ROW2.map((p, i) => (
-            <Tile key={`r2-${i}`} icon={p.coverIcon} label={p.coverLabel} />
+            <Tile key={`r2-${i}`} icon={p.coverIcon} label={p.coverLabel} image={p.coverImage} />
           ))}
         </div>
       </div>

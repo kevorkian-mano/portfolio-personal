@@ -48,41 +48,77 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
           <LiveProjectButton href={project.repo} label="View Code" className="shrink-0 hidden sm:inline-block" />
         </div>
 
-        {/* Bottom row */}
-        <div className="grid md:grid-cols-2 gap-5 sm:gap-7 items-stretch flex-1 min-h-0">
-          {/* Cover */}
-          <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#D7E2EA]/15 min-h-[180px]">
-            <ProjectCover
-              icon={project.coverIcon}
-              label={project.coverLabel}
-              illustration={project.coverIllustration}
-              iconSize={120}
-            />
-          </div>
-
-          {/* Text */}
-          <div className="flex flex-col justify-between gap-5">
-            <ul className="flex flex-col gap-3">
-              {project.bullets.map((b, j) => (
-                <li key={j} className="flex gap-3 text-[#D7E2EA]/75 text-sm sm:text-[15px] leading-relaxed font-light">
-                  <span className="mt-2 w-1 h-1 rounded-full bg-[#D7E2EA]/40 shrink-0" />
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((s) => (
-                <span
-                  key={s}
-                  className="text-[11px] sm:text-xs text-[#D7E2EA]/60 border border-[#D7E2EA]/15 rounded-full px-3 py-1 uppercase tracking-wider"
-                >
-                  {s}
-                </span>
-              ))}
+        {/* Stack chips (shared) */}
+        {project.coverImage ? (
+          /* Image showcase layout */
+          <div className="flex flex-col gap-4 sm:gap-5 flex-1 min-h-0">
+            <div
+              className="rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center"
+              style={{ maxHeight: '44vh' }}
+            >
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                loading="lazy"
+                className="w-full h-auto object-contain"
+                style={{ maxHeight: '44vh' }}
+              />
             </div>
-            <LiveProjectButton href={project.repo} label="View Code" className="sm:hidden self-start" />
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <ul className="flex flex-col gap-1.5 max-w-3xl">
+                {project.bullets.map((b, j) => (
+                  <li key={j} className="flex gap-3 text-[#D7E2EA]/65 text-xs sm:text-sm leading-relaxed font-light">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-[#D7E2EA]/40 shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2 shrink-0">
+                {project.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[11px] sm:text-xs text-[#D7E2EA]/60 border border-[#D7E2EA]/15 rounded-full px-3 py-1 uppercase tracking-wider"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          /* Icon cover layout */
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-7 items-stretch flex-1 min-h-0">
+            <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#D7E2EA]/15 min-h-[180px]">
+              <ProjectCover
+                icon={project.coverIcon}
+                label={project.coverLabel}
+                illustration={project.coverIllustration}
+                iconSize={120}
+              />
+            </div>
+            <div className="flex flex-col justify-between gap-5">
+              <ul className="flex flex-col gap-3">
+                {project.bullets.map((b, j) => (
+                  <li key={j} className="flex gap-3 text-[#D7E2EA]/75 text-sm sm:text-[15px] leading-relaxed font-light">
+                    <span className="mt-2 w-1 h-1 rounded-full bg-[#D7E2EA]/40 shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[11px] sm:text-xs text-[#D7E2EA]/60 border border-[#D7E2EA]/15 rounded-full px-3 py-1 uppercase tracking-wider"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <LiveProjectButton href={project.repo} label="View Code" className="sm:hidden self-start" />
+            </div>
+          </div>
+        )}
       </motion.div>
     </div>
   )

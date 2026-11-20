@@ -1,3 +1,8 @@
+import studyBuddyCover from './assets/projects/covers/studybuddy.png'
+import miniJiraCover from './assets/projects/covers/minijira.png'
+import citiBikeCover from './assets/projects/covers/citibike.png'
+import playLearnCover from './assets/projects/covers/playlearn.png'
+
 import pwcLogo from './assets/logos/pwc.png'
 import pmiLogo from './assets/logos/pmi.png'
 import kodakLogo from './assets/logos/kodak.png'
@@ -105,6 +110,7 @@ export interface Project {
   coverIcon: string
   coverLabel: string
   coverIllustration?: string
+  coverImage?: string
 }
 
 export const projects: Project[] = [
@@ -129,6 +135,7 @@ export const projects: Project[] = [
     stack: ['React', 'Node.js', 'GraphQL', 'Kafka', 'PostgreSQL'],
     coverIcon: 'UsersRound',
     coverLabel: 'Microservices',
+    coverImage: studyBuddyCover,
     bullets: [
       'Led a team of 5 to build 7 microservices communicating via Kafka across 6 event streams and 7 PostgreSQL databases.',
       'Developed a 7-factor compatibility algorithm to generate real-time, personalized study buddy recommendations.',
@@ -142,7 +149,7 @@ export const projects: Project[] = [
     stack: ['AWS', 'React', 'Node.js', 'DynamoDB', 'Lambda'],
     coverIcon: 'Cloud',
     coverLabel: 'AWS Cloud',
-    coverIllustration: 'aws',
+    coverImage: miniJiraCover,
     bullets: [
       'Deployed a Jira-like task platform across 2 AZs using EC2, ALB & CloudFront, integrating 10+ AWS services.',
       'Built 3 event-driven Lambda workflows via SNS, SQS & EventBridge for image processing, alerts and daily digests.',
@@ -156,6 +163,7 @@ export const projects: Project[] = [
     stack: ['PySpark', 'Spark SQL', 'SparkML', 'Plotly'],
     coverIcon: 'Bike',
     coverLabel: 'Big Data / ML',
+    coverImage: citiBikeCover,
     bullets: [
       'Cleaned 1.3M Citi Bike records to a 99.92% clean-data rate and ran 10 Spark SQL queries to uncover demand patterns.',
       'Evaluated 3 SparkML models on 624K+ records, achieving 59.81% accuracy and delivering an interactive dashboard.',
@@ -208,6 +216,7 @@ export const projects: Project[] = [
     stack: ['Next.js', 'Nest.js', 'MongoDB'],
     coverIcon: 'Gamepad2',
     coverLabel: 'EdTech Platform',
+    coverImage: playLearnCover,
     bullets: [
       'Built a gamified learning platform for Egyptian children (ages 3-12) with 33 games across 6 subjects and 3 difficulty levels.',
       'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',
