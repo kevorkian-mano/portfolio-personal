@@ -1,25 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
-import studyBuddyImg from '../assets/projects/studybuddy.png'
-import miniJiraImg from '../assets/projects/minijira.png'
-import citiBikeImg from '../assets/projects/citibike.png'
-import likeALocalImg from '../assets/projects/likealocal.jpg'
+import ProjectCover from '../components/ProjectCover'
+import { projects } from '../data'
 
-// Rows are built from real project work so the band is self-contained.
-const ROW1 = [studyBuddyImg, miniJiraImg, citiBikeImg, likeALocalImg]
-const ROW2 = [citiBikeImg, likeALocalImg, studyBuddyImg, miniJiraImg]
-const REPEAT = 4
-const TRIPLED1 = Array.from({ length: REPEAT }, () => ROW1).flat()
-const TRIPLED2 = Array.from({ length: REPEAT }, () => ROW2).flat()
+// Build the two rows from the project covers so the band is consistent
+// with the project cards and fully self-contained.
+const HALF = Math.ceil(projects.length / 2)
+const ROW1_SRC = projects.slice(0, HALF)
+const ROW2_SRC = projects.slice(HALF)
+const REPEAT = 3
+const ROW1 = Array.from({ length: REPEAT }, () => ROW1_SRC).flat()
+const ROW2 = Array.from({ length: REPEAT }, () => ROW2_SRC).flat()
 
-function Tile({ src }: { src: string }) {
+function Tile({ icon, label }: { icon: string; label: string }) {
   return (
-    <img
-      src={src}
-      alt=""
-      loading="lazy"
-      className="rounded-2xl object-cover shrink-0 border border-[#D7E2EA]/10"
+    <div
+      className="rounded-2xl shrink-0 border border-[#D7E2EA]/10 overflow-hidden"
       style={{ width: 420, height: 270 }}
-    />
+    >
+      <ProjectCover icon={icon} label={label} iconSize={92} />
+    </div>
   )
 }
 
@@ -51,16 +50,16 @@ export default function MarqueeSection() {
           className="flex gap-3"
           style={{ transform: `translateX(${offset - 200}px)`, willChange: 'transform' }}
         >
-          {TRIPLED1.map((src, i) => (
-            <Tile key={`r1-${i}`} src={src} />
+          {ROW1.map((p, i) => (
+            <Tile key={`r1-${i}`} icon={p.coverIcon} label={p.coverLabel} />
           ))}
         </div>
         <div
           className="flex gap-3"
           style={{ transform: `translateX(${-(offset - 200)}px)`, willChange: 'transform' }}
         >
-          {TRIPLED2.map((src, i) => (
-            <Tile key={`r2-${i}`} src={src} />
+          {ROW2.map((p, i) => (
+            <Tile key={`r2-${i}`} icon={p.coverIcon} label={p.coverLabel} />
           ))}
         </div>
       </div>

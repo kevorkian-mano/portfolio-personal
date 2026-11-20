@@ -1,8 +1,3 @@
-import studyBuddyImg from './assets/projects/studybuddy.png'
-import miniJiraImg from './assets/projects/minijira.png'
-import citiBikeImg from './assets/projects/citibike.png'
-import likeALocalImg from './assets/projects/likealocal.jpg'
-
 import pwcLogo from './assets/logos/pwc.png'
 import pmiLogo from './assets/logos/pmi.png'
 import kodakLogo from './assets/logos/kodak.png'
@@ -107,8 +102,8 @@ export interface Project {
   repo: string
   bullets: string[]
   stack: string[]
-  image?: string
-  imageAlt?: string
+  coverIcon: string
+  coverLabel: string
 }
 
 export const projects: Project[] = [
@@ -118,6 +113,8 @@ export const projects: Project[] = [
     date: 'Nov 2026',
     repo: 'https://github.com/kevorkian-mano/thesis-coding-agent-adoption',
     stack: ['Python', 'GitHub API', 'GraphQL'],
+    coverIcon: 'Bot',
+    coverLabel: 'AI Research',
     bullets: [
       'Built a 5-stage pipeline with a 3-pass detection cascade, classifying 60,129 GitHub repos for AI coding agent use.',
       "Found 74.4% adoption and produced the first 66-country ranking using Wilson CIs, McNemar's and chi-squared tests.",
@@ -129,8 +126,8 @@ export const projects: Project[] = [
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/buddymatcher-microservices',
     stack: ['React', 'Node.js', 'GraphQL', 'Kafka', 'PostgreSQL'],
-    image: studyBuddyImg,
-    imageAlt: 'Study Buddy Matcher landing page',
+    coverIcon: 'UsersRound',
+    coverLabel: 'Microservices',
     bullets: [
       'Led a team of 5 to build 7 microservices communicating via Kafka across 6 event streams and 7 PostgreSQL databases.',
       'Developed a 7-factor compatibility algorithm to generate real-time, personalized study buddy recommendations.',
@@ -142,8 +139,8 @@ export const projects: Project[] = [
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/aws-mini-jira',
     stack: ['AWS', 'React', 'Node.js', 'DynamoDB', 'Lambda'],
-    image: miniJiraImg,
-    imageAlt: 'Mini-Jira AWS cloud architecture diagram',
+    coverIcon: 'Cloud',
+    coverLabel: 'AWS Cloud',
     bullets: [
       'Deployed a Jira-like task platform across 2 AZs using EC2, ALB & CloudFront, integrating 10+ AWS services.',
       'Built 3 event-driven Lambda workflows via SNS, SQS & EventBridge for image processing, alerts and daily digests.',
@@ -155,8 +152,8 @@ export const projects: Project[] = [
     date: 'May 2026',
     repo: 'https://github.com/kevorkian-mano/Citi-Bike-NYC',
     stack: ['PySpark', 'Spark SQL', 'SparkML', 'Plotly'],
-    image: citiBikeImg,
-    imageAlt: 'Citi Bike hourly trip demand analysis chart',
+    coverIcon: 'Bike',
+    coverLabel: 'Big Data / ML',
     bullets: [
       'Cleaned 1.3M Citi Bike records to a 99.92% clean-data rate and ran 10 Spark SQL queries to uncover demand patterns.',
       'Evaluated 3 SparkML models on 624K+ records, achieving 59.81% accuracy and delivering an interactive dashboard.',
@@ -168,8 +165,8 @@ export const projects: Project[] = [
     date: 'Jun 2026',
     repo: 'https://github.com/kevorkian-mano/likealocal-mobile-app',
     stack: ['Flutter', 'Dart', 'Firebase'],
-    image: likeALocalImg,
-    imageAlt: 'LikeALocal mobile app promotional screens',
+    coverIcon: 'MapPin',
+    coverLabel: 'Flutter App',
     bullets: [
       'Built a premium Flutter travel app for discovering curated "Hidden Gems" via an interactive map, personalized feed, and community contributions.',
       'Designed 5 hierarchical user roles with an AI local guide, P2P chat, and premium tiers including an AI trip planner and offline maps.',
@@ -181,6 +178,8 @@ export const projects: Project[] = [
     date: 'Dec 2025',
     repo: 'https://github.com/kevorkian-mano/DataOrbit---HealthCare-Provider-Fraud-Detection-Project',
     stack: ['MongoDB', 'Nest.js', 'Next.js'],
+    coverIcon: 'Building2',
+    coverLabel: 'Enterprise System',
     bullets: [
       'Led a 21-member team delivering an HR system with 7 subsystems to production, ranked among the top 5 projects.',
       'Unified subsystem repos into one NestJS/Next.js codebase, with 75+ REST endpoints delivered over 3 milestones.',
@@ -192,6 +191,8 @@ export const projects: Project[] = [
     date: 'Jan 2026',
     repo: 'https://github.com/kevorkian-mano/lucine-ecommerce_testdriven',
     stack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    coverIcon: 'ShoppingBag',
+    coverLabel: 'E-Commerce',
     bullets: [
       'Developed a production-ready MERN e-commerce platform with JWT auth, Stripe payments, stock-validated cart, and an admin dashboard.',
       'Followed a test-driven, layered 3-tier architecture with SOLID principles and 300+ unit tests across backend and frontend.',
@@ -203,6 +204,8 @@ export const projects: Project[] = [
     date: 'Jan 2026',
     repo: 'https://github.com/kevorkian-mano/play-Learn-requirements-engineering',
     stack: ['Next.js', 'Nest.js', 'MongoDB'],
+    coverIcon: 'Gamepad2',
+    coverLabel: 'EdTech Platform',
     bullets: [
       'Built a gamified learning platform for Egyptian children (ages 3-12) with 33 games across 6 subjects and 3 difficulty levels.',
       'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',

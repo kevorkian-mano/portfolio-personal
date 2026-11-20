@@ -3,19 +3,9 @@ import type { MotionValue } from 'framer-motion'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import FadeIn from '../components/FadeIn'
 import LiveProjectButton from '../components/LiveProjectButton'
+import ProjectCover from '../components/ProjectCover'
 import { projects } from '../data'
 import type { Project } from '../data'
-
-function initials(title: string) {
-  return title
-    .replace(/[^a-zA-Z ]/g, '')
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase()
-}
 
 interface CardProps {
   project: Project
@@ -60,23 +50,9 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
 
         {/* Bottom row */}
         <div className="grid md:grid-cols-2 gap-5 sm:gap-7 items-stretch flex-1 min-h-0">
-          {/* Image / cover */}
+          {/* Cover */}
           <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#D7E2EA]/15 min-h-[180px]">
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={project.imageAlt || project.title}
-                loading="lazy"
-                className="w-full h-full object-cover object-top"
-                style={{ background: '#111' }}
-              />
-            ) : (
-              <div className="w-full h-full min-h-[180px] flex items-center justify-center grid-cover">
-                <span className="hero-heading font-black" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>
-                  {initials(project.title)}
-                </span>
-              </div>
-            )}
+            <ProjectCover icon={project.coverIcon} label={project.coverLabel} iconSize={120} />
           </div>
 
           {/* Text */}
