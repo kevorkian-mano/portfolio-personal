@@ -49,11 +49,11 @@ export const experiences = [
     company: 'PwC ETIC',
     logo: pwcLogo,
     role: 'Managed Services & AI Intern',
-    period: 'Jul 2026 — Present',
+    period: 'Jul 2026 - Present',
     location: 'Cairo, Egypt',
     current: true,
     bullets: [
-      'Built 3 AI agentic tools turning BRDs into HTML prototypes in 15 min; co-designed AI training for 40–60 staff.',
+      'Built 3 AI agentic tools turning BRDs into HTML prototypes in 15 min; co-designed AI training for 40-60 staff.',
       'Deployed Azure Document Intelligence models, Function Apps & AI configs across Dev, Staging & Prod for 2 tax apps.',
       'Resolved Level 1 incidents across 25+ enterprise apps via ServiceNow, Jira & Azure DevOps; wrote team support guides.',
     ],
@@ -63,7 +63,7 @@ export const experiences = [
     company: 'Project Management Institute',
     logo: pmiLogo,
     role: 'PM Course Pilot Volunteer',
-    period: 'Sep 2025 — Oct 2025',
+    period: 'Sep 2025 - Oct 2025',
     location: 'Cairo, Egypt',
     bullets: [
       'Evaluated a 4-hour Software Project Management eLearning course focused on Agile methodologies and sprint planning.',
@@ -76,7 +76,7 @@ export const experiences = [
     company: 'Accord Business Group',
     logo: abgLogo,
     role: 'Software Engineer Intern',
-    period: 'Aug 2025 — Sep 2025',
+    period: 'Aug 2025 - Sep 2025',
     location: 'Cairo, Egypt',
     bullets: [
       'Collaborated with a fraud analysis team to understand the end-to-end fraud detection lifecycle in banking systems.',
@@ -89,7 +89,7 @@ export const experiences = [
     company: 'Eastman Kodak Company',
     logo: kodakLogo,
     role: 'Software Engineer Intern',
-    period: 'May 2025 — Jul 2025',
+    period: 'May 2025 - Jul 2025',
     location: 'Cairo, Egypt',
     bullets: [
       'Developed a full-stack web application to digitally transform in-store queue management and customer records.',
@@ -164,7 +164,7 @@ export const projects = [
     tag: 'Full Stack',
   },
   {
-    title: 'LikeALocal — City Discovery App',
+    title: 'LikeALocal - City Discovery App',
     image: likeALocalImg,
     imageAlt: 'LikeALocal mobile app promotional screens',
     imageFit: 'cover',
@@ -178,7 +178,7 @@ export const projects = [
     tag: 'Mobile',
   },
   {
-    title: 'LUCINE — Full-Stack E-Commerce',
+    title: 'LUCINE - Full-Stack E-Commerce',
     stack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     date: 'Jan 2026',
     repo: 'https://github.com/kevorkian-mano/lucine-ecommerce_testdriven',
@@ -194,7 +194,7 @@ export const projects = [
     date: 'Jan 2026',
     repo: 'https://github.com/kevorkian-mano/play-Learn-requirements-engineering',
     bullets: [
-      'Built a gamified learning platform for Egyptian children (ages 3–12) with 33 games across 6 subjects and 3 difficulty levels.',
+      'Built a gamified learning platform for Egyptian children (ages 3-12) with 33 games across 6 subjects and 3 difficulty levels.',
       'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',
     ],
     tag: 'Full Stack',
@@ -214,7 +214,7 @@ export const educationHistory = [
   {
     school: 'Kaloudian Nubarian Armenian School',
     logo: knasLogo,
-    degree: 'Graduated — Mathematics Section',
+    degree: 'Graduated - Mathematics Section',
     minor: '',
     location: 'Cairo, Egypt',
     period: 'Secondary education',
@@ -264,7 +264,7 @@ export const achievements = [
     type: 'Certification',
   },
   {
-    title: 'AWS Academy Graduate — Cloud Foundations',
+    title: 'AWS Academy Graduate - Cloud Foundations',
     issuer: 'AWS Academy',
     year: '2026',
     link: 'https://www.credly.com/badges/123b3967-1b0d-4ab9-a2cc-38d7078a3fe2/public_url',

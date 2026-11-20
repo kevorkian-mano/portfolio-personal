@@ -22,13 +22,9 @@ export default function Home() {
               Software Engineer · Portfolio
             </p>
 
-            <h1 className="animate-fade-in-up animate-delay-100 text-4xl md:text-6xl font-semibold text-ink-900 tracking-tight leading-[1.05] mb-6">
-              Manuel <span className="font-serif italic font-normal">Youssef</span> Haik Kevorkian
+            <h1 className="animate-fade-in-up animate-delay-100 text-4xl md:text-6xl font-semibold text-ink-900 tracking-tight leading-[1.05] mb-10">
+              Manuel Youssef Haik Kevorkian
             </h1>
-
-            <p className="animate-fade-in-up animate-delay-200 text-lg text-ink-500 leading-relaxed max-w-2xl mb-10">
-              Software Engineering student at GIU Cairo with a minor in Data Science &amp; AI — I build full-stack apps, cloud-native platforms, and AI-powered tools.
-            </p>
 
             <div className="animate-fade-in-up animate-delay-300 flex flex-wrap items-center gap-3">
               <Link

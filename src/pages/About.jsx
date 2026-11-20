@@ -17,13 +17,13 @@ export default function About() {
           <div className="grid md:grid-cols-5 gap-10 items-start">
             <div className="md:col-span-3 space-y-5 text-ink-600 leading-relaxed">
               <p>
-                I'm Manuel — a Software Engineering student at the <strong className="text-ink-900 font-semibold">German International University</strong> in Cairo, with a minor in Data Science & AI. I enjoy working across the stack, from distributed backend systems to modern frontends and AI-powered agents.
+                I'm Manuel, a Software Engineering student at the <strong className="text-ink-900 font-semibold">German International University</strong> in Cairo, with a minor in Data Science & AI. I enjoy working across the stack, from distributed backend systems to modern frontends and AI-powered agents.
               </p>
               <p>
                 Over the past year, I've interned at <strong className="text-ink-900 font-semibold">PwC ETIC</strong>, <strong className="text-ink-900 font-semibold">Eastman Kodak</strong>, and <strong className="text-ink-900 font-semibold">Accord Business Group</strong>, shipping cloud-deployed AI tools, full-stack apps, and fraud analysis work in production environments.
               </p>
               <p>
-                My academic work combines solid engineering fundamentals with research — most recently my thesis on AI coding agent adoption across 60,000+ npm repositories, where I built a multi-stage detection pipeline and ran statistical tests across 66 countries.
+                My academic work combines solid engineering fundamentals with research, most recently my thesis on AI coding agent adoption across 60,000+ npm repositories, where I built a multi-stage detection pipeline and ran statistical tests across 66 countries.
               </p>
               <p>
                 Based in <strong className="text-ink-900 font-semibold">{profile.location}</strong>, graduating <strong className="text-ink-900 font-semibold">June 2027</strong>.
