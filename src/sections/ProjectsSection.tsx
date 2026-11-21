@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { MotionValue } from 'framer-motion'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import FadeIn from '../components/FadeIn'
@@ -15,17 +15,64 @@ interface CardProps {
   targetScale: number
 }
 
+// Desktop only: pin each card only once its whole height is on screen, hold it
+// there for a while, and only then let the next card slide over it. Card and
+// banner sizes are untouched.
+const DESKTOP_QUERY = '(min-width: 768px)'
+const BASE_TOP = 112 // same as md:top-28
+const BOTTOM_GAP = 24
+const HOLD = 0.45 // fraction of the viewport to scroll while the full card stays put
+
+function useDesktopPin(cardRef: React.RefObject<HTMLDivElement | null>, index: number) {
+  const [pin, setPin] = useState<{ top: number; height: number } | null>(null)
+
+  useEffect(() => {
+    const mq = window.matchMedia(DESKTOP_QUERY)
+    const update = () => {
+      const el = cardRef.current
+      if (!mq.matches || !el) {
+        setPin(null)
+        return
+      }
+      const offset = index * 26
+      const cardH = el.offsetHeight // layout height, unaffected by the scale transform
+      const vh = window.innerHeight
+      const top = Math.min(BASE_TOP, vh - BOTTOM_GAP - offset - cardH)
+      const height = Math.max(offset + cardH + vh * HOLD, vh * 0.82)
+      setPin({ top, height })
+    }
+    update()
+    const ro = new ResizeObserver(update)
+    if (cardRef.current) ro.observe(cardRef.current)
+    window.addEventListener('resize', update)
+    mq.addEventListener('change', update)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', update)
+      mq.removeEventListener('change', update)
+    }
+  }, [cardRef, index])
+
+  return pin
+}
+
 function ProjectCard({ project, index, progress, range, targetScale }: CardProps) {
   const scale = useTransform(progress, range, [1, targetScale])
+  const cardRef = useRef<HTMLDivElement>(null)
+  const pin = useDesktopPin(cardRef, index)
 
   return (
-    <div className="h-[82vh] md:h-[115vh] sticky top-20 md:top-10 flex justify-center md:items-start">
+    <div
+      className="h-[82vh] sticky top-20 md:top-28 flex justify-center md:items-start"
+      style={pin ? { top: pin.top, height: pin.height } : undefined}
+    >
       <motion.div
-        style={{ scale, top: `${Math.min(index, 3) * 26}px` }}
-        className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-7 flex flex-col"
+        ref={cardRef}
+        style={{ scale, top: `${index * 26}px` }}
+        className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-9 flex flex-col md:min-h-[82vh]"
       >
         {/* Top row */}
-        <div className="flex items-start justify-between gap-4 mb-5 sm:mb-6">
+        <div className="flex items-start justify-between gap-4 mb-5 sm:mb-7">
           <div className="flex items-start gap-3 sm:gap-5 min-w-0">
             <span
               className="hero-heading font-black shrink-0"
@@ -52,13 +99,17 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
         {project.coverImage ? (
           /* Image showcase layout: stacked on phone/tablet, side-by-side
              on desktop with the banner kept at its native aspect ratio. */
-          <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-4 sm:gap-5 md:gap-5 flex-1 min-h-0">
-            <div className="md:col-span-3 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center max-h-[44vh] md:max-h-[27vh]">
+          <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-4 sm:gap-5 md:gap-7 flex-1 min-h-0">
+            <div
+              className="md:col-span-3 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center"
+              style={{ maxHeight: '44vh' }}
+            >
               <img
                 src={project.coverImage}
                 alt={project.title}
                 loading="lazy"
-                className="w-full h-auto md:w-auto md:h-[27vh] aspect-[16/9] object-contain max-h-[44vh] md:max-h-none"
+                className="w-full h-auto object-contain"
+                style={{ maxHeight: '44vh', aspectRatio: '16 / 9' }}
               />
             </div>
             <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-start sm:justify-between md:flex-col md:justify-center gap-3 md:gap-5 md:h-full">
