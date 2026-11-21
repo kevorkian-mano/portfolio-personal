@@ -141,8 +141,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* PHONE content: fills from under the nav to the bottom */}
-      <div className="flex sm:hidden relative z-20 flex-1 flex-col justify-between px-6 pt-3 pb-7">
+      {/* PHONE content: evenly spaced from under the nav to the bottom */}
+      <div className="flex sm:hidden relative z-20 flex-1 flex-col justify-evenly px-6 pb-[env(safe-area-inset-bottom)]">
         {/* badge + name + portrait */}
         <div>
           <FadeIn delay={0.1} y={-10} className="mb-4">
