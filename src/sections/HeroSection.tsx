@@ -1,6 +1,8 @@
 import FadeIn from '../components/FadeIn'
+import Magnet from '../components/Magnet'
 import ContactButton from '../components/ContactButton'
 import { profile } from '../data'
+import portrait from '../assets/portrait.webp'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -35,8 +37,22 @@ export default function HeroSection() {
         </div>
       </FadeIn>
 
+      {/* Portrait (magnetic cursor-follow) */}
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 top-[11%] sm:top-[9%] md:top-[7%] w-[230px] sm:w-[300px] md:w-[360px] lg:w-[410px] pointer-events-none">
+        {/* soft glow behind the head */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{ background: 'radial-gradient(circle at 50% 45%, rgba(187,204,215,0.16), transparent 62%)' }}
+        />
+        <FadeIn delay={0.3} y={30} className="pointer-events-auto">
+          <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
+            <img src={portrait} alt="Manuel" className="w-full h-auto select-none drop-shadow-2xl" draggable={false} />
+          </Magnet>
+        </FadeIn>
+      </div>
+
       {/* Heading + bottom bar */}
-      <div className="flex-1 flex flex-col justify-end px-6 md:px-10">
+      <div className="relative z-20 flex-1 flex flex-col justify-end px-6 md:px-10">
         <div className="overflow-hidden">
           <FadeIn
             as="h1"
