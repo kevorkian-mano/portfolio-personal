@@ -19,7 +19,7 @@ export default function HeroSection() {
         as="nav"
         delay={0}
         y={-20}
-        className="flex items-center justify-between gap-4 px-6 md:px-10 pt-6 md:pt-8 relative z-20"
+        className="flex items-center justify-between gap-4 px-6 md:px-10 pt-6 md:pt-8 relative z-40"
       >
         <span className="text-[#D7E2EA] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hidden sm:block">
           MK
@@ -37,8 +37,8 @@ export default function HeroSection() {
         </div>
       </FadeIn>
 
-      {/* Portrait (magnetic cursor-follow) */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 top-[11%] sm:top-[9%] md:top-[7%] w-[230px] sm:w-[300px] md:w-[360px] lg:w-[410px] pointer-events-none">
+      {/* Portrait (magnetic cursor-follow) - sits in front of the name */}
+      <div className="absolute left-1/2 -translate-x-1/2 z-30 top-[29%] sm:top-[11%] md:top-[8%] lg:top-[7%] w-[330px] sm:w-[400px] md:w-[460px] lg:w-[520px] max-w-[86vw] pointer-events-none">
         {/* soft glow behind the head */}
         <div
           className="absolute inset-0 -z-10"
@@ -51,7 +51,8 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Heading + bottom bar */}
+      {/* Heading + bottom bar. On phones the block centres so the larger
+          portrait overlaps the name instead of leaving a gap. */}
       <div className="relative z-20 flex-1 flex flex-col justify-end px-6 md:px-10">
         <div className="overflow-hidden">
           <FadeIn
