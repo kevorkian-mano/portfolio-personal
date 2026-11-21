@@ -1,7 +1,7 @@
 import FadeIn from '../components/FadeIn'
 import Magnet from '../components/Magnet'
 import ContactButton from '../components/ContactButton'
-import { profile } from '../data'
+import { profile, experiences } from '../data'
 import portrait from '../assets/portrait.webp'
 
 const NAV_LINKS = [
@@ -10,6 +10,44 @@ const NAV_LINKS = [
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
+
+const CURRENT_BADGE = `${experiences[0].role} @ PwC`
+
+function PortraitImg() {
+  return (
+    <FadeIn delay={0.3} y={30} className="pointer-events-auto">
+      <Magnet
+        padding={150}
+        strength={3}
+        activeTransition="transform 0.3s ease-out"
+        inactiveTransition="transform 0.6s ease-in-out"
+      >
+        <img src={portrait} alt="Manuel" className="w-full h-auto select-none drop-shadow-2xl" draggable={false} />
+      </Magnet>
+    </FadeIn>
+  )
+}
+
+function Glow() {
+  return (
+    <div
+      className="absolute inset-0 -z-10"
+      style={{ background: 'radial-gradient(circle at 50% 45%, rgba(187,204,215,0.16), transparent 62%)' }}
+    />
+  )
+}
+
+function StatusBadge() {
+  return (
+    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D7E2EA]/15 bg-white/[0.03] text-[#D7E2EA]/85 text-[10px] sm:text-xs font-medium uppercase tracking-wider">
+      <span className="relative flex h-2 w-2 shrink-0">
+        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-60 animate-ping" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+      </span>
+      {CURRENT_BADGE}
+    </span>
+  )
+}
 
 export default function HeroSection() {
   return (
@@ -37,35 +75,37 @@ export default function HeroSection() {
         </div>
       </FadeIn>
 
-      {/* Portrait (magnetic cursor-follow) - sits in front of the name */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-30 top-[29%] sm:top-[11%] md:top-[8%] lg:top-[7%] w-[330px] sm:w-[400px] md:w-[460px] lg:w-[520px] max-w-[86vw] pointer-events-none">
-        {/* soft glow behind the head */}
-        <div
-          className="absolute inset-0 -z-10"
-          style={{ background: 'radial-gradient(circle at 50% 45%, rgba(187,204,215,0.16), transparent 62%)' }}
-        />
-        <FadeIn delay={0.3} y={30} className="pointer-events-auto">
-          <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
-            <img src={portrait} alt="Manuel" className="w-full h-auto select-none drop-shadow-2xl" draggable={false} />
-          </Magnet>
-        </FadeIn>
+      {/* Desktop portrait: big, centered, layered in front of the name */}
+      <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 z-30 sm:top-[11%] md:top-[8%] lg:top-[7%] w-[400px] md:w-[460px] lg:w-[520px] max-w-[86vw] pointer-events-none">
+        <Glow />
+        <PortraitImg />
       </div>
 
-      {/* Heading + bottom bar. On phones the block centres so the larger
-          portrait overlaps the name instead of leaving a gap. */}
-      <div className="relative z-20 flex-1 flex flex-col justify-end px-6 md:px-10">
-        <div className="overflow-hidden">
-          <FadeIn
-            as="h1"
-            delay={0.15}
-            y={40}
-            className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[11vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-6 sm:mt-4 md:-mt-5"
-          >
-            Hi, i&rsquo;m {profile.firstName}
-          </FadeIn>
+      {/* Content: desktop pins to the bottom, phone centres the stack */}
+      <div className="relative z-20 flex-1 flex flex-col justify-center sm:justify-end px-6 md:px-10">
+        <FadeIn delay={0.1} y={-10} className="mb-6 sm:mb-7">
+          <StatusBadge />
+        </FadeIn>
+
+        {/* Heading, with the phone portrait sitting beside the name */}
+        <div className="relative">
+          <div className="sm:hidden absolute right-0 -top-[42%] w-[150px] max-w-[42vw] z-30 pointer-events-none">
+            <Glow />
+            <PortraitImg />
+          </div>
+          <div className="overflow-hidden">
+            <FadeIn
+              as="h1"
+              delay={0.15}
+              y={40}
+              className="hero-heading font-black uppercase tracking-tight leading-[0.95] sm:leading-none whitespace-normal sm:whitespace-nowrap w-full text-[16vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-0 sm:mt-4 md:-mt-5"
+            >
+              Hi, i&rsquo;m {profile.firstName}
+            </FadeIn>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-6 pb-7 sm:pb-8 md:pb-10">
+        <div className="flex flex-col gap-6 pt-5 sm:pt-0 pb-7 sm:pb-8 md:pb-10">
           <div className="flex justify-between items-end gap-6 relative z-20">
             <FadeIn delay={0.35} y={20}>
               <p

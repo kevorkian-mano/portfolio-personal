@@ -1,4 +1,5 @@
 import FadeIn from '../components/FadeIn'
+import ContactButton from '../components/ContactButton'
 import { profile, achievements } from '../data'
 
 const CHANNELS = [
@@ -14,15 +15,15 @@ export default function ContactSection() {
         as="h2"
         delay={0}
         y={40}
-        className="hero-heading font-black uppercase leading-none tracking-tight text-center"
-        style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+        className="hero-heading font-black uppercase leading-[0.95] tracking-tight text-center break-words px-2"
+        style={{ fontSize: 'clamp(2.5rem, 12vw, 160px)' }}
       >
-        Let&rsquo;s talk
+        Let&rsquo;s connect
       </FadeIn>
 
       <div className="max-w-5xl mx-auto mt-12 sm:mt-16 flex flex-col gap-10">
         {/* Email */}
-        <FadeIn className="flex flex-col items-center gap-3 text-center">
+        <FadeIn className="flex flex-col items-center gap-4 text-center">
           <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-xs">Email</span>
           <a
             href={`mailto:${profile.email}`}
@@ -32,6 +33,7 @@ export default function ContactSection() {
             {profile.email}
           </a>
           <span className="text-[#D7E2EA]/40 text-sm">{profile.phone} · {profile.location}</span>
+          <ContactButton href={`mailto:${profile.email}`} className="mt-2" />
         </FadeIn>
 
         {/* Channels */}
