@@ -81,7 +81,7 @@ function MetaRow() {
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen flex flex-col" style={{ overflowX: 'clip' }}>
+    <section className="relative sm:h-screen flex flex-col" style={{ overflowX: 'clip' }}>
       {/* Navbar */}
       <FadeIn
         as="nav"
@@ -141,8 +141,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* PHONE content: evenly spaced from under the nav to the bottom */}
-      <div className="flex sm:hidden relative z-20 flex-1 flex-col justify-evenly px-6 pb-[env(safe-area-inset-bottom)]">
+      {/* PHONE content: compact stack with small, equal gaps */}
+      <div className="flex sm:hidden relative z-20 flex-col gap-8 px-6 pt-8 pb-[env(safe-area-inset-bottom)]">
         {/* badge + name + portrait */}
         <div>
           <FadeIn delay={0.1} y={-10} className="mb-4">
