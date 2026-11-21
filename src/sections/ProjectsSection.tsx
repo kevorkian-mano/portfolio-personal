@@ -19,13 +19,13 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
   const scale = useTransform(progress, range, [1, targetScale])
 
   return (
-    <div className="h-[82vh] md:h-[115vh] sticky top-20 md:top-28 flex justify-center md:items-start">
+    <div className="h-[82vh] md:h-[115vh] sticky top-20 md:top-10 flex justify-center md:items-start">
       <motion.div
-        style={{ scale, top: `${index * 26}px` }}
-        className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-9 flex flex-col"
+        style={{ scale, top: `${Math.min(index, 3) * 26}px` }}
+        className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-7 flex flex-col"
       >
         {/* Top row */}
-        <div className="flex items-start justify-between gap-4 mb-5 sm:mb-7">
+        <div className="flex items-start justify-between gap-4 mb-5 sm:mb-6">
           <div className="flex items-start gap-3 sm:gap-5 min-w-0">
             <span
               className="hero-heading font-black shrink-0"
@@ -52,17 +52,13 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
         {project.coverImage ? (
           /* Image showcase layout: stacked on phone/tablet, side-by-side
              on desktop with the banner kept at its native aspect ratio. */
-          <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-4 sm:gap-5 md:gap-7 flex-1 min-h-0">
-            <div
-              className="md:col-span-3 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center"
-              style={{ maxHeight: '44vh' }}
-            >
+          <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-4 sm:gap-5 md:gap-5 flex-1 min-h-0">
+            <div className="md:col-span-3 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center max-h-[44vh] md:max-h-[27vh]">
               <img
                 src={project.coverImage}
                 alt={project.title}
                 loading="lazy"
-                className="w-full h-auto object-contain"
-                style={{ maxHeight: '44vh', aspectRatio: '16 / 9' }}
+                className="w-full h-auto object-contain aspect-[16/9] max-h-[44vh] md:max-h-[27vh]"
               />
             </div>
             <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-start sm:justify-between md:flex-col md:justify-center gap-3 md:gap-5 md:h-full">
