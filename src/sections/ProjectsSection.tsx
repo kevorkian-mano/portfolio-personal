@@ -19,7 +19,7 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
   const scale = useTransform(progress, range, [1, targetScale])
 
   return (
-    <div className="h-[82vh] md:h-[145vh] sticky top-20 md:top-28 flex justify-center">
+    <div className="h-[82vh] md:h-[115vh] sticky top-20 md:top-28 flex justify-center md:items-start">
       <motion.div
         style={{ scale, top: `${index * 26}px` }}
         className="relative w-full max-w-5xl origin-top rounded-[32px] sm:rounded-[44px] md:rounded-[52px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-7 md:p-9 flex flex-col"
