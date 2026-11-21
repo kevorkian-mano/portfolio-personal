@@ -58,7 +58,7 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
                 src={project.coverImage}
                 alt={project.title}
                 loading="lazy"
-                className="w-full h-auto object-contain aspect-[16/9] max-h-[44vh] md:max-h-[27vh]"
+                className="w-full h-auto md:w-auto md:h-[27vh] aspect-[16/9] object-contain max-h-[44vh] md:max-h-none"
               />
             </div>
             <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-start sm:justify-between md:flex-col md:justify-center gap-3 md:gap-5 md:h-full">
