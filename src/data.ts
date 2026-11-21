@@ -2,6 +2,10 @@ import studyBuddyCover from './assets/projects/covers/studybuddy.png'
 import miniJiraCover from './assets/projects/covers/minijira.png'
 import citiBikeCover from './assets/projects/covers/citibike.png'
 import playLearnCover from './assets/projects/covers/playlearn.png'
+import likeALocalCover from './assets/projects/covers/likealocal.png'
+import lucineCover from './assets/projects/covers/lucine.png'
+import healthcareCover from './assets/projects/covers/healthcare.png'
+import hrSystemCover from './assets/projects/covers/hrsystem.png'
 
 import pwcLogo from './assets/logos/pwc.png'
 import pmiLogo from './assets/logos/pmi.png'
@@ -177,6 +181,7 @@ export const projects: Project[] = [
     stack: ['Flutter', 'Dart', 'Firebase'],
     coverIcon: 'MapPin',
     coverLabel: 'Flutter App',
+    coverImage: likeALocalCover,
     bullets: [
       'Built a premium Flutter travel app for discovering curated "Hidden Gems" via an interactive map, personalized feed, and community contributions.',
       'Designed 5 hierarchical user roles with an AI local guide, P2P chat, and premium tiers including an AI trip planner and offline maps.',
@@ -190,6 +195,7 @@ export const projects: Project[] = [
     stack: ['MongoDB', 'Nest.js', 'Next.js'],
     coverIcon: 'Building2',
     coverLabel: 'Enterprise System',
+    coverImage: hrSystemCover,
     bullets: [
       'Led a 21-member team delivering an HR system with 7 subsystems to production, ranked among the top 5 projects.',
       'Unified subsystem repos into one NestJS/Next.js codebase, with 75+ REST endpoints delivered over 3 milestones.',
@@ -203,6 +209,7 @@ export const projects: Project[] = [
     stack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     coverIcon: 'ShoppingBag',
     coverLabel: 'E-Commerce',
+    coverImage: lucineCover,
     bullets: [
       'Developed a production-ready MERN e-commerce platform with JWT auth, Stripe payments, stock-validated cart, and an admin dashboard.',
       'Followed a test-driven, layered 3-tier architecture with SOLID principles and 300+ unit tests across backend and frontend.',
@@ -220,6 +227,20 @@ export const projects: Project[] = [
     bullets: [
       'Built a gamified learning platform for Egyptian children (ages 3-12) with 33 games across 6 subjects and 3 difficulty levels.',
       'Engineered full requirements and SRS covering the teacher/course system plus online-safety monitoring and parental controls.',
+    ],
+  },
+  {
+    title: 'Healthcare Appointment Scheduling System',
+    tag: 'Architecture',
+    date: 'Nov 2025',
+    repo: 'https://github.com/kevorkian-mano/Healthcare_Appointment_Scheduling_System',
+    stack: ['UML', 'Microservices', 'System Design'],
+    coverIcon: 'Building2',
+    coverLabel: 'System Architecture',
+    coverImage: healthcareCover,
+    bullets: [
+      'Ran 12 client interviews to extract 10 functional and 11 non-functional requirements for a platform supporting 10,000+ concurrent users.',
+      'Designed a 7-service microservices architecture with 5 UML sequence diagrams, evolving a monolith MVP to a horizontally scaled, <2s-response system.',
     ],
   },
 ]
