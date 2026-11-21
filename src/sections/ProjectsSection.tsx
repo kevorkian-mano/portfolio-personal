@@ -50,10 +50,11 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
 
         {/* Stack chips (shared) */}
         {project.coverImage ? (
-          /* Image showcase layout */
-          <div className="flex flex-col gap-4 sm:gap-5 flex-1 min-h-0">
+          /* Image showcase layout: stacked on phone/tablet, side-by-side
+             on desktop with the banner kept at its native aspect ratio. */
+          <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-4 sm:gap-5 md:gap-7 flex-1 min-h-0">
             <div
-              className="rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center"
+              className="md:col-span-3 rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#D7E2EA]/10 bg-[#F4F1EA] flex items-center justify-center"
               style={{ maxHeight: '44vh' }}
             >
               <img
@@ -61,13 +62,13 @@ function ProjectCard({ project, index, progress, range, targetScale }: CardProps
                 alt={project.title}
                 loading="lazy"
                 className="w-full h-auto object-contain"
-                style={{ maxHeight: '44vh' }}
+                style={{ maxHeight: '44vh', aspectRatio: '16 / 9' }}
               />
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-              <ul className="flex flex-col gap-1.5 max-w-3xl">
+            <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-start sm:justify-between md:flex-col md:justify-center gap-3 md:gap-5 md:h-full">
+              <ul className="flex flex-col gap-1.5 md:gap-3 max-w-3xl">
                 {project.bullets.map((b, j) => (
-                  <li key={j} className="flex gap-3 text-[#D7E2EA]/65 text-xs sm:text-sm leading-relaxed font-light">
+                  <li key={j} className="flex gap-3 text-[#D7E2EA]/65 text-xs sm:text-sm md:text-[15px] leading-relaxed font-light">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-[#D7E2EA]/40 shrink-0" />
                     {b}
                   </li>
