@@ -10,7 +10,7 @@ const CHANNELS = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 pb-10">
+    <section id="contact" className="relative z-20 bg-[#0C0C0C] px-5 sm:px-8 md:px-10 pt-28 sm:pt-24 pb-10">
       <FadeIn
         as="h2"
         delay={0}

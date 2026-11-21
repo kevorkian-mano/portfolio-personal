@@ -1,8 +1,15 @@
+import { Cloud, Code2, Sparkles } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 import Magnet from '../components/Magnet'
 import ContactButton from '../components/ContactButton'
 import { profile, experiences } from '../data'
 import portrait from '../assets/portrait.webp'
+
+const CHIPS = [
+  { icon: Cloud, label: 'Cloud' },
+  { icon: Code2, label: 'Full-Stack' },
+  { icon: Sparkles, label: 'AI Tools' },
+]
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -81,35 +88,39 @@ export default function HeroSection() {
         <PortraitImg />
       </div>
 
-      {/* Content: desktop pins to the bottom, phone centres the stack */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center sm:justify-end px-6 md:px-10">
-        <FadeIn delay={0.1} y={-10} className="mb-6 sm:mb-7">
-          <StatusBadge />
-        </FadeIn>
+      {/* Content: desktop pins to the bottom, phone centres a fuller stack */}
+      <div className="relative z-20 flex-1 flex flex-col justify-center sm:justify-end gap-7 sm:gap-0 px-6 md:px-10">
+        {/* badge + name (+ phone portrait) */}
+        <div>
+          <FadeIn delay={0.1} y={-10} className="mb-5 sm:mb-7">
+            <StatusBadge />
+          </FadeIn>
 
-        {/* Heading, with the phone portrait sitting beside the name */}
-        <div className="relative">
-          <div className="sm:hidden absolute right-0 -top-[42%] w-[150px] max-w-[42vw] z-30 pointer-events-none">
-            <Glow />
-            <PortraitImg />
-          </div>
-          <div className="overflow-hidden">
-            <FadeIn
-              as="h1"
-              delay={0.15}
-              y={40}
-              className="hero-heading font-black uppercase tracking-tight leading-[0.95] sm:leading-none whitespace-normal sm:whitespace-nowrap w-full text-[16vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-0 sm:mt-4 md:-mt-5"
-            >
-              Hi, i&rsquo;m {profile.firstName}
-            </FadeIn>
+          {/* Heading, with the phone portrait sitting beside the name */}
+          <div className="relative">
+            <div className="sm:hidden absolute right-0 -top-[28%] w-[168px] max-w-[48vw] z-30 pointer-events-none">
+              <Glow />
+              <PortraitImg />
+            </div>
+            <div className="overflow-hidden">
+              <FadeIn
+                as="h1"
+                delay={0.15}
+                y={40}
+                className="hero-heading font-black uppercase tracking-tight leading-[0.95] sm:leading-none whitespace-normal sm:whitespace-nowrap w-full text-[17vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-0 sm:mt-4 md:-mt-5"
+              >
+                Hi, i&rsquo;m {profile.firstName}
+              </FadeIn>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 pt-5 sm:pt-0 pb-7 sm:pb-8 md:pb-10">
-          <div className="flex justify-between items-end gap-6 relative z-20">
+        {/* tagline + button + meta */}
+        <div className="flex flex-col gap-6 pb-7 sm:pb-8 md:pb-10">
+          <div className="flex justify-between items-end gap-4 sm:gap-6 relative z-20">
             <FadeIn delay={0.35} y={20}>
               <p
-                className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[220px] sm:max-w-[300px] md:max-w-[380px]"
+                className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[190px] sm:max-w-[300px] md:max-w-[380px]"
                 style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
               >
                 {profile.tagline}
@@ -120,6 +131,19 @@ export default function HeroSection() {
               <ContactButton />
             </FadeIn>
           </div>
+
+          {/* phone-only skill chips */}
+          <FadeIn delay={0.55} y={16} className="flex sm:hidden flex-wrap gap-2">
+            {CHIPS.map(({ icon: Icon, label }) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#D7E2EA]/15 bg-white/[0.03] px-3 py-1.5 text-[#D7E2EA]/80 text-[11px] font-medium uppercase tracking-wider"
+              >
+                <Icon size={13} className="text-[#BBCCD7]" />
+                {label}
+              </span>
+            ))}
+          </FadeIn>
 
           <FadeIn
             delay={0.6}
