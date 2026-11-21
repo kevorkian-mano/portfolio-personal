@@ -56,6 +56,29 @@ function StatusBadge() {
   )
 }
 
+function Tagline() {
+  return (
+    <p
+      className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[190px] sm:max-w-[300px] md:max-w-[380px]"
+      style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
+    >
+      {profile.tagline}
+    </p>
+  )
+}
+
+function MetaRow() {
+  return (
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[#D7E2EA]/60 text-xs sm:text-sm uppercase tracking-wider pt-4 border-t border-[#D7E2EA]/10">
+      <span>{profile.location}</span>
+      <span className="hidden sm:inline">GIU · Expected Jun 2027</span>
+      <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-[#D7E2EA] transition-colors">
+        github.com/kevorkian-mano
+      </a>
+    </div>
+  )
+}
+
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex flex-col" style={{ overflowX: 'clip' }}>
@@ -64,7 +87,7 @@ export default function HeroSection() {
         as="nav"
         delay={0}
         y={-20}
-        className="flex items-center justify-between gap-4 px-6 md:px-10 pt-6 md:pt-8 relative z-40"
+        className="flex items-center justify-between gap-4 px-6 md:px-10 pt-[max(1.75rem,env(safe-area-inset-top))] md:pt-8 relative z-40"
       >
         <span className="text-[#D7E2EA] font-semibold uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hidden sm:block">
           MK
@@ -88,17 +111,45 @@ export default function HeroSection() {
         <PortraitImg />
       </div>
 
-      {/* Content: desktop pins to the bottom, phone centres a fuller stack */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center sm:justify-end gap-7 sm:gap-0 px-6 md:px-10">
-        {/* badge + name (+ phone portrait) */}
+      {/* DESKTOP content: pinned to the bottom (unchanged) */}
+      <div className="hidden sm:flex relative z-20 flex-1 flex-col justify-end px-6 md:px-10">
+        <FadeIn delay={0.1} y={-10} className="mb-7">
+          <StatusBadge />
+        </FadeIn>
+        <div className="overflow-hidden">
+          <FadeIn
+            as="h1"
+            delay={0.15}
+            y={40}
+            className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-4 md:-mt-5"
+          >
+            Hi, i&rsquo;m {profile.firstName}
+          </FadeIn>
+        </div>
+        <div className="flex flex-col gap-6 pb-8 md:pb-10">
+          <div className="flex justify-between items-end gap-6">
+            <FadeIn delay={0.35} y={20}>
+              <Tagline />
+            </FadeIn>
+            <FadeIn delay={0.5} y={20}>
+              <ContactButton />
+            </FadeIn>
+          </div>
+          <FadeIn delay={0.6} y={16}>
+            <MetaRow />
+          </FadeIn>
+        </div>
+      </div>
+
+      {/* PHONE content: fills from under the nav to the bottom */}
+      <div className="flex sm:hidden relative z-20 flex-1 flex-col justify-between px-6 pt-3 pb-7">
+        {/* badge + name + portrait */}
         <div>
-          <FadeIn delay={0.1} y={-10} className="mb-5 sm:mb-7">
+          <FadeIn delay={0.1} y={-10} className="mb-4">
             <StatusBadge />
           </FadeIn>
-
-          {/* Heading, with the phone portrait sitting beside the name */}
           <div className="relative">
-            <div className="sm:hidden absolute right-0 -top-[28%] w-[168px] max-w-[48vw] z-30 pointer-events-none">
+            <div className="absolute right-0 -top-[26%] w-[170px] max-w-[48vw] z-30 pointer-events-none">
               <Glow />
               <PortraitImg />
             </div>
@@ -107,7 +158,7 @@ export default function HeroSection() {
                 as="h1"
                 delay={0.15}
                 y={40}
-                className="hero-heading font-black uppercase tracking-tight leading-[0.95] sm:leading-none whitespace-normal sm:whitespace-nowrap w-full text-[17vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[13vw] mt-0 sm:mt-4 md:-mt-5"
+                className="hero-heading font-black uppercase tracking-tight leading-[0.92] w-full text-[18vw]"
               >
                 Hi, i&rsquo;m {profile.firstName}
               </FadeIn>
@@ -115,25 +166,18 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* tagline + button + meta */}
-        <div className="flex flex-col gap-6 pb-7 sm:pb-8 md:pb-10">
-          <div className="flex justify-between items-end gap-4 sm:gap-6 relative z-20">
+        {/* tagline + button + chips (one cluster) */}
+        <div className="flex flex-col gap-5">
+          <div className="flex justify-between items-end gap-4">
             <FadeIn delay={0.35} y={20}>
-              <p
-                className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[190px] sm:max-w-[300px] md:max-w-[380px]"
-                style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
-              >
-                {profile.tagline}
-              </p>
+              <Tagline />
             </FadeIn>
-
             <FadeIn delay={0.5} y={20}>
               <ContactButton />
             </FadeIn>
           </div>
 
-          {/* phone-only skill chips */}
-          <FadeIn delay={0.55} y={16} className="flex sm:hidden flex-wrap gap-2">
+          <FadeIn delay={0.55} y={16} className="flex flex-wrap gap-2">
             {CHIPS.map(({ icon: Icon, label }) => (
               <span
                 key={label}
@@ -144,19 +188,12 @@ export default function HeroSection() {
               </span>
             ))}
           </FadeIn>
-
-          <FadeIn
-            delay={0.6}
-            y={16}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[#D7E2EA]/60 text-xs sm:text-sm uppercase tracking-wider pt-4 border-t border-[#D7E2EA]/10"
-          >
-            <span>{profile.location}</span>
-            <span className="hidden sm:inline">GIU · Expected Jun 2027</span>
-            <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-[#D7E2EA] transition-colors">
-              github.com/kevorkian-mano
-            </a>
-          </FadeIn>
         </div>
+
+        {/* meta */}
+        <FadeIn delay={0.6} y={16}>
+          <MetaRow />
+        </FadeIn>
       </div>
     </section>
   )
